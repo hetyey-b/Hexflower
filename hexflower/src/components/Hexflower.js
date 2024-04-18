@@ -1,6 +1,6 @@
-import { HexGrid, Layout, Hexagon, Text, Pattern, Path, Hex } from 'react-hexgrid';
+import { HexGrid, Layout, Hexagon, Text } from 'react-hexgrid';
 
-function Hexflower({hexagons}) {
+function Hexflower({hexagons, setHexagons}) {
     const onHexagonClick = (q,r,s) => {
         alert(`${q}   ${r}   ${s}`)
     }
@@ -17,10 +17,10 @@ function Hexflower({hexagons}) {
                             r={hex.r} 
                             s={hex.s}
                             onClick={() => {onHexagonClick(hex.q,hex.r,hex.s)}}
-                            className={`transition-all ${hex.color}Hex`}
+                            className={`${hex.color}Hex`}
                         >
                             <Text>
-                                {i} {hex.text}
+                                {hex.text}
                             </Text>
                         </Hexagon>
                     ))
