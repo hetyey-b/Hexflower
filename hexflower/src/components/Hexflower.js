@@ -1,8 +1,8 @@
 import { HexGrid, Layout, Hexagon, Text } from 'react-hexgrid';
 
-function Hexflower({hexagons, setHexagons}) {
-    const onHexagonClick = (q,r,s) => {
-        alert(`${q}   ${r}   ${s}`)
+function Hexflower({hexagons, selectedHexagon, setSelectedHexagon}) {
+    const onHexagonClick = (q,r,s,i) => {
+        setSelectedHexagon(i);
     }
 
     return(
@@ -16,8 +16,8 @@ function Hexflower({hexagons, setHexagons}) {
                             q={hex.q} 
                             r={hex.r} 
                             s={hex.s}
-                            onClick={() => {onHexagonClick(hex.q,hex.r,hex.s)}}
-                            className={`${hex.color}Hex`}
+                            onClick={() => {onHexagonClick(hex.q,hex.r,hex.s,i)}}
+                            className={`${hex.color}Hex ${selectedHexagon === i ? "selectedBorder" : ""}`}
                         >
                             <Text>
                                 {hex.text}

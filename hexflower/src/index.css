@@ -23,18 +23,39 @@ code {
 .greenHex g:hover {
     fill: rgb(163 230 53);
 }
+.greenHex.selectedBorder g {
+    fill: rgb(132 204 22);
+}
+.greenHex.selectedBorder g:hover {
+    fill: rgb(163 230 53);
+}
+
 .blueHex g {
     fill: rgb(30 64 175);
 }
 .blueHex g:hover {
     fill: rgb(37 99 235);
 }
+.blueHex.selectedBorder g {
+    fill: rgb(29 78 216);
+}
+.blueHex.selectedBorder g:hover {
+    fill: rgb(37 99 235);
+}
+
 .purpleHex g {
     fill: rgb(91 33 182);
 }
 .purpleHex g:hover {
     fill: rgb(124 58 237);
 }
+.purpleHex.selectedBorder g {
+    fill: rgb(109 40 217);
+}
+.purpleHex.selectedBorder g:hover {
+    fill: rgb(124 58 237);
+}
+
 .yellowHex g {
     fill: rgb(234 179 8);
     color: black;
@@ -43,28 +64,61 @@ code {
     fill: rgb(253 224 71);
     color: black;
 }
+.yellowHex.selectedBorder g {
+    fill: rgb(250 224 71);
+    color: black;
+}
+.yellowHex.selectedBorder g:hover {
+    fill: rgb(253 224 71);
+    color: black;
+}
+
 .brownHex g {
     fill: rgb(69 26 3);
 }
 .brownHex g:hover {
     fill: rgb(146 64 14);
 }
+.brownHex.selectedBorder g {
+    fill: rgb(120 53 15);
+}
+.brownHex.selectedBorder g:hover {
+    fill: rgb(146 64 14);
+}
+
 .redHex g {
     fill: rgb(153 27 27);
 }
 .redHex g:hover {
     fill: rgb(220 38 38);
 }
+.redHex.selectedBorder g {
+    fill: rgb(185 28 28);
+}
+.redHex.selectedBorder g:hover {
+    fill: rgb(220 38 38);
+}
+
 .emptyHex g {
     fill: rgb(64 64 64);
 }
 .emptyHex g:hover {
     fill: rgb(115 115 115);
 }
+.emptyHex.selectedBorder g {
+    fill: rgb(82 82 82);
+}
+.emptyHex.selectedBorder g:hover {
+    fill: rgb(115 115 115);
+}
+
+.selectedBorder g text {
+    text-decoration: underline;
+    font-weight: bold;
+}
 
 svg g {
     fill: rgb(82 82 82);
-    fill-opacity: 0.6;
 
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -72,21 +126,14 @@ svg g {
 }
 svg g:hover {
   fill: rgb(163 163 163);
-  fill-opacity: 0.7;
   cursor: pointer;
-}
-svg g:hover text {
-  fill-opacity: 1;
 }
 
 svg g polygon {
   stroke: black;
   stroke-width: 0.2;
-  transition: fill-opacity .5s;
 }
 svg g text {
-  font-size: 0.1em;
+  font-size: 0.15em;
   fill: white;
-  fill-opacity: 0.7;
-  transition: fill-opacity .5s;
 }

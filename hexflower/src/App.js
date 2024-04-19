@@ -1,6 +1,7 @@
 import React from "react";
 import Hexflower from "./components/Hexflower";
 import {GridGenerator} from 'react-hexgrid';
+import Hexedit from "./components/Hexedit";
 
 const generatorConfiguration = {
     "map": "spiral",
@@ -10,6 +11,7 @@ const generatorConfiguration = {
 function App() {
     const generator = GridGenerator.getGenerator(generatorConfiguration.map);
     const [hexagons,setHexagons] = React.useState([]);
+    const [selectedHexagon, setSelectedHexagon] = React.useState(0);
     React.useEffect(() => {
         let newHexagons = generator.apply(this, generatorConfiguration.mapProps);
         newHexagons = newHexagons.map((hex, i) => {
@@ -30,9 +32,23 @@ function App() {
         setHexagons(newHexagons);
     }, []);
 
+    const handleHexEditSet = (newHex) => {
+        let newHexagons = [...hexagons];
+        newHexagons[selectedHexagon] = newHex;
+        setHexagons(newHexagons);
+    }
+
     return (
-        <div className="mx-10 mt-10">
-            <Hexflower hexagons={hexagons} setHexagons={setHexagons} />
+        <div className="mx-10 mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <Hexedit
+                hexagon={hexagons[selectedHexagon]}
+                setHexagon={handleHexEditSet}
+            />
+            <Hexflower 
+                hexagons={hexagons} 
+                selectedHexagon={selectedHexagon} 
+                setSelectedHexagon={setSelectedHexagon}
+            />
         </div>
     );
 }
