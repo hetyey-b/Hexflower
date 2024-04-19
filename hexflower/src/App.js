@@ -19,6 +19,7 @@ function App() {
             
             newHex.text = i+1;
             newHex.color = "green";
+            newHex.i = i;
             if (Math.abs(hex.q) === 3 ||
                 Math.abs(hex.r) === 3 ||
                 Math.abs(hex.s) === 3) {
@@ -40,10 +41,16 @@ function App() {
 
     return (
         <div className="mx-10 mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Hexedit
-                hexagon={hexagons[selectedHexagon]}
-                setHexagon={handleHexEditSet}
-            />
+            {
+                hexagons[selectedHexagon] ? (
+                    <Hexedit
+                        hexagon={hexagons[selectedHexagon]}
+                        setHexagon={handleHexEditSet}
+                    />
+                ) : (
+                    <div>Hello World</div>
+                ) 
+            }
             <Hexflower 
                 hexagons={hexagons} 
                 selectedHexagon={selectedHexagon} 

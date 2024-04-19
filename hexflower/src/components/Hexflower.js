@@ -2,6 +2,12 @@ import { HexGrid, Layout, Hexagon, Text } from 'react-hexgrid';
 
 function Hexflower({hexagons, selectedHexagon, setSelectedHexagon}) {
     const onHexagonClick = (q,r,s,i) => {
+        if (Math.abs(q) === 3 ||
+            Math.abs(r) === 3 ||
+            Math.abs(s) === 3) {
+
+            return;
+        }
         setSelectedHexagon(i);
     }
 
