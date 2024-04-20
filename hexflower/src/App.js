@@ -2,6 +2,7 @@ import React from "react";
 import Hexflower from "./components/Hexflower";
 import {GridGenerator} from 'react-hexgrid';
 import Hexedit from "./components/Hexedit";
+import Runflower from "./components/Runflower";
 
 const generatorConfiguration = {
     "map": "spiral",
@@ -43,10 +44,16 @@ function App() {
         <div className="mx-10 mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
             {
                 hexagons[selectedHexagon] ? (
-                    <Hexedit
-                        hexagon={hexagons[selectedHexagon]}
-                        setHexagon={handleHexEditSet}
-                    />
+                    <div>
+                        <Hexedit
+                            hexagon={hexagons[selectedHexagon]}
+                            setHexagon={handleHexEditSet}
+                        />
+                        <hr className="mr-28 my-5"/>
+                        <Runflower
+                            hexagons={hexagons}
+                        />
+                    </div>
                 ) : (
                     <div>Hello World</div>
                 ) 

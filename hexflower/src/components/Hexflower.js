@@ -23,7 +23,9 @@ function Hexflower({hexagons, selectedHexagon, setSelectedHexagon}) {
                             r={hex.r} 
                             s={hex.s}
                             onClick={() => {onHexagonClick(hex.q,hex.r,hex.s,i)}}
-                            className={`${hex.color}Hex ${selectedHexagon === i ? "selectedBorder" : ""}`}
+                            className={`${hex.color}Hex 
+                                    ${selectedHexagon === i ? "selectedBorder" : ""}
+                                `}
                         >
                             <Text>
                                 {hex.text}
