@@ -1,7 +1,6 @@
 import React from "react";
 
-function Runflower({hexagons}) {
-    const [selectedStarterHex, setSelectedStarterHex] = React.useState(0);
+function Runflower({hexagons, onRunFlower, selectedStarterHex, setSelectedStarterHex}) {
 
     const newHexagons = hexagons.filter(hex => {
         if (Math.abs(hex.q) === 3 ||
@@ -36,7 +35,10 @@ function Runflower({hexagons}) {
                     ))
                 }
             </select>
-            <button className="bg-gray-700 hover:bg-gray-500 block text-white font-bold py-2 px-4 rounded">
+            <button 
+                className="bg-gray-700 hover:bg-gray-500 block text-white font-bold py-2 px-4 rounded"
+                onClick={onRunFlower}
+            >
                 Run Flower
             </button>
         </div>
